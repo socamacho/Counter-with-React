@@ -8,8 +8,13 @@ import "bootstrap";
 //include your index.scss file into the bundle
 import "../styles/index.scss";
 
-//import your own components
-import { Home } from "./component/home.js";
+import SecondCounter from "./component/SecondCounter";
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+let counter = 0; // mi contador inicia en cero.
+setInterval(function() {
+	counter = counter + 1; //primer parametro
+	ReactDOM.render(
+		<SecondCounter segundos={counter} />,
+		document.querySelector("#app")
+	);
+}, 1000);
